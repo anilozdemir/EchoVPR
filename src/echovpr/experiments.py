@@ -28,7 +28,7 @@ class ESN_Exp():
         self.ValidationInd = ValidationInd
         self.tol           = tol
 
-        if hasattr(model, 'hierModel'):  self.hierModel = model.hierModel # check if the model is hierarchical
+        self.hierModel = True if hasattr(model, 'hierModel') else False # check if the model is hierarchical
 
         self.precalc()
         
