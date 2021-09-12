@@ -1,6 +1,6 @@
 ## Currently under development
 
-You can find two example notebooks and source code.
+You can find two example notebooks ([standard ESN and SpaRCe](https://colab.research.google.com/github/anilozdemir/EchoVPR/blob/main/notebooks/example_train_single_ESN.ipynb) & [hierarchical ESN and SpaRCe](https://colab.research.google.com/github/anilozdemir/EchoVPR/blob/main/notebooks/example_train_hier_ESN.ipynb)) and the [source code](https://github.com/anilozdemir/EchoVPR/tree/main/src).
 
 ## Paper Abstract
 
