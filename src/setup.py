@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="EchoVPR",
+    name="echovpr",
     version="1.0",
     author="Anil Ozdemir",
     author_email="a.ozdemir@sheffield.ac.uk",
