@@ -18,7 +18,7 @@ def getValidationIndices(randSeed, nOutput):
     return TrainInd, TestInd
 
 
-class SingleESN_Exp():
+class ESN_Exp():
     def __init__(self,model,hlrTrain,hlrTest,TestInd,ValidationInd,tol):
         
         self.model         = model
@@ -27,6 +27,9 @@ class SingleESN_Exp():
         self.TestInd       = TestInd
         self.ValidationInd = ValidationInd
         self.tol           = tol
+
+        if hasattr(model, 'hierModel'):  self.hierModel = model.hierModel # check if the model is hierarchical
+
         self.precalc()
         
     def precalc(self):
@@ -34,25 +37,42 @@ class SingleESN_Exp():
         if self.model.useReadout == True:
             raise ValueError('This class require ESN.useReadout==False!...')
         
-        
         model    = self.model      
         hlrTrain = self.hlrTrain
         hlrTest  = self.hlrTest  
         
         activation = nn.Softmax(dim=1) 
-        # get states
-        with torch.no_grad():
-            # get training states
-            model.reset()
-            [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTrain]
-            hs1_train = model.getNumpyData()['hiddenStates'][1:]
-            # get testing states
-            model.reset()
-            [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTest]
-            hs1_test = model.getNumpyData()['hiddenStates'][1:]
-        
-        self.hs_train = torch.Tensor(hs1_train).to(model.device)
-        self.hs_test  = torch.Tensor(hs1_test ).to(model.device) 
+
+        if self.hierModel:  # if the model is hierarchical ESN
+            with torch.no_grad():
+                # get training states
+                model.reset()
+                [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTrain]
+                hs1_train = model.getNumpyData()['hiddenStates1'][1:]
+                hs2_train = model.getNumpyData()['hiddenStates2'][1:]
+                # get testing states
+                model.reset()
+                [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTest]
+                hs1_test = model.getNumpyData()['hiddenStates1'][1:]
+                hs2_test = model.getNumpyData()['hiddenStates2'][1:]
+                    
+            self.hs_train = torch.Tensor(np.hstack([hs1_train, hs2_train])).to(model.device)
+            self.hs_test  = torch.Tensor(np.hstack([hs1_test , hs2_test ])).to(model.device) 
+       
+        else: # if it is single ESN
+            # get states
+            with torch.no_grad():
+                # get training states
+                model.reset()
+                [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTrain]
+                hs_train = model.getNumpyData()['hiddenStates'][1:]
+                # get testing states
+                model.reset()
+                [activation(model(torch.Tensor(x).unsqueeze(0))) for x in hlrTest]
+                hs_test = model.getNumpyData()['hiddenStates'][1:]
+
+            self.hs_train = torch.Tensor(hs_train).to(model.device)
+            self.hs_test  = torch.Tensor(hs_test ).to(model.device) 
 
     def train_esn(self, nEpoch = 50, lR = 0.001, nBatch = 5, returnData=True, returnDataAll = False):
         
@@ -68,7 +88,7 @@ class SingleESN_Exp():
         OutputTrain    = np.zeros((nEpoch, model.nOutput, model.nOutput))
         OutputTest_All = np.zeros((nEpoch, model.nOutput, model.nOutput))
         OutputValid    = np.zeros((nEpoch, k_fold, model.nOutput//k_fold, model.nOutput)) # 10 % data
-        OutputTest     = np.zeros((nEpoch, k_fold,model.nOutput-model.nOutput//k_fold, model.nOutput)) # 90 % data
+        OutputTest     = np.zeros((nEpoch, k_fold, model.nOutput-model.nOutput//k_fold, model.nOutput)) # 90 % data
            
         Loss           = np.zeros((nEpoch,nBatch))
         AccTrain       = np.zeros((nEpoch))
