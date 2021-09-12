@@ -15,11 +15,14 @@ class singleESN(nn.Module):
     Optional arguments
     ------------------
     - alpha       : 0.5
-    - gamma       : 0.01 (found in ray tune search)
+    - gamma       : 0.01 
     - randomSeed  : 1
-    - phi         : 1.0 (found in ray tune search)
+    - phi         : 1.0 
     - rho         : 1.0
     - sparsity    : 0.9
+    - activation  : torch.tanh 
+    - distr       : 'uniform'
+    - useReadout  : False
     '''
     def __init__(self, nInput: int, nOutput: int, nReservoir: int, **kwargs):
         super().__init__()
@@ -36,7 +39,6 @@ class singleESN(nn.Module):
         self.activation  = kwargs.get('activation', torch.tanh)    
         self.distr       = kwargs.get('Wout_distr', 'uniform')
         self.useReadout  = kwargs.get('useReadout', False)
-        
         deviceStr        = kwargs.get('device'    , 'optional')
         
         if deviceStr == 'optional':
