@@ -1,7 +1,7 @@
-## Currently under development
+[ArXiv pre-print with supplementary materials](https://arxiv.org/abs/2110.05572)
+
 
 - You can find two example notebooks ([standard ESN and SpaRCe](https://colab.research.google.com/github/anilozdemir/EchoVPR/blob/main/notebooks/example_train_single_ESN.ipynb) & [hierarchical ESN and SpaRCe](https://colab.research.google.com/github/anilozdemir/EchoVPR/blob/main/notebooks/example_train_hier_ESN.ipynb)) and the [source code](https://github.com/anilozdemir/EchoVPR/tree/main/src).
-- [ArXiv pre-print with supplementary materials](https://arxiv.org/abs/2110.05572)
 - [Repo](https://github.com/anilozdemir/EchoVPR) for results Section IV. A,B,E: **GardensPoint, SPEDTest, ESSEX3IN1, Corridor**, and (subset) **Nordland** datasets, and **supplementary materials**
 - [Repo](https://github.com/mscerri/EchoVPR) for results Section IV. C,D,E: **Nordland** and **Oxford RobotCar** datasets
 
