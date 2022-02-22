@@ -15,4 +15,9 @@ Recognising previously visited locations is an important, but unsolved, task in 
 
 ## Link To The Datasets
 
-To be added.
+- [Gardens Point](https://doi.org/10.5281/zenodo.4590133)
+- [ESSEX3IN1](https://github.com/MubarizZaffar/ESSEX3IN1-Dataset)
+- [SPEDTest](https://ieeexplore.ieee.org/document/8421024)
+- [Corridor](https://journals.sagepub.com/doi/abs/10.1177/0278364913490323)
+- [Nordland](https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/)
+- [Oxford RobotCar](https://robotcar-dataset.robots.ox.ac.uk)
