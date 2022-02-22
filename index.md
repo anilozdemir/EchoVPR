@@ -10,7 +10,7 @@
 
 Recognising previously visited locations is an important, but unsolved, task in autonomous navigation. Current visual place recognition (VPR) benchmarks typically challenge models to recover the position of a query image (or images) from sequential datasets that include both spatial and temporal components. Recently, Echo State Network (ESN) varieties have proven particularly powerful at solving machine learning tasks that require spatio-temporal modelling. These networks are simple, yet powerful neural architectures that--exhibiting memory over multiple time-scales and non-linear high-dimensional representations--can discover temporal relations in the data while still maintaining linearity in the learning time. In this paper, we present a series of ESNs and analyse their applicability to the VPR problem. We report that the addition of ESNs to pre-processed convolutional neural networks led to a dramatic boost in performance in comparison to non-recurrent networks in five out of six standard benchmarks (GardensPoint, SPEDTest, ESSEX3IN1, Oxford RobotCar, and Nordland), demonstrating that ESNs are able to capture the temporal structure inherent in VPR problems. Moreover, we show that models that include ESNs can outperform class-leading VPR models which also exploit the sequential dynamics of the data. Finally, our results demonstrate that ESNs improve generalisation abilities, robustness, and accuracy further supporting their suitability to VPR applications.
 
-## Link To The Datasets
+## Dataset Links
 
 - [Gardens Point](https://doi.org/10.5281/zenodo.4590133)
 - [ESSEX3IN1](https://github.com/MubarizZaffar/ESSEX3IN1-Dataset)
