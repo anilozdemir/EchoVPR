@@ -1,3 +1,6 @@
+🎉 Our paper has been accepted to IEEE Robotics & Automation Letters journal ([early access to the paper](https://doi.org/10.1109/LRA.2022.3150505)) and will be presentated in [ICRA 2022](https://www.icra2022.org).
+
+
 [ArXiv pre-print with supplementary materials](https://arxiv.org/abs/2110.05572)
 
 
