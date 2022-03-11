@@ -1,0 +1,7 @@
+@article{ozdemir2022echovpr,
+  title     = {EchoVPR: Echo State Networks for Visual Place Recognition},
+  author    = {Ozdemir, Anil and Scerri, Mark and Barron, Andrew and Philippides, Andrew and Mangan, Michael and Vasilaki, Eleni and Manneschi, Luca},
+  journal   = {IEEE Robotics and Automation Letters},
+  year      = {2022},
+  publisher = {IEEE}
+}
