@@ -18,3 +18,14 @@ Recognising previously visited locations is an important, but unsolved, task in 
 - [Corridor](https://journals.sagepub.com/doi/abs/10.1177/0278364913490323)
 - [Nordland](https://nrkbeta.no/2013/01/15/nordlandsbanen-minute-by-minute-season-by-season/)
 - [Oxford RobotCar](https://robotcar-dataset.robots.ox.ac.uk)
+
+## Citing EchoVPR
+```bibtex
+@article{ozdemir2022echovpr,
+  title     = {EchoVPR: Echo State Networks for Visual Place Recognition},
+  author    = {Ozdemir, Anil and Scerri, Mark and Barron, Andrew and Philippides, Andrew and Mangan, Michael and Vasilaki, Eleni and Manneschi, Luca},
+  journal   = {IEEE Robotics and Automation Letters},
+  year      = {2022},
+  publisher = {IEEE}
+}
+```
